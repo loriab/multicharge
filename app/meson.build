@@ -13,9 +13,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+rpath = get_option('prefix') + '/' + get_option('libdir')
 multicharge_exe = executable(
   meson.project_name(),
   sources: files('main.f90'),
   dependencies: multicharge_dep,
   install: install,
+  install_rpath: rpath,
+  build_rpath: rpath,
 )
